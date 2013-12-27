@@ -53,17 +53,17 @@ function Messi(data, options) {
   if(_this.options.buttons.length > 0) {
   
     for (var i = 0; i < _this.options.buttons.length; i++) {
+      (function () {
+        var cls = (_this.options.buttons[i]["class"]) ? _this.options.buttons[i]["class"] : '';
+        var btn = jQuery('<div class="btnbox"><button class="btn ' + cls + '" href="#">' + _this.options.buttons[i].label + '</button></div>').data('value', _this.options.buttons[i].val);
+        btn.on('click', 'button', function() {
+          var value = btn.data('value');
+          var after = (_this.options.callback != null) ? function() { _this.options.callback(value); } : null;
+          _this.hide(after);
+        });
       
-      var cls = (_this.options.buttons[i]["class"]) ? _this.options.buttons[i]["class"] : '';
-      var btn = jQuery('<div class="btnbox"><button class="btn ' + cls + '" href="#">' + _this.options.buttons[i].label + '</button></div>').data('value', _this.options.buttons[i].val);
-      btn.on('click', 'button', function() {
-        var value = btn.data('value');
-        var after = (_this.options.callback != null) ? function() { _this.options.callback(value); } : null;
-        _this.hide(after);
-      });
-    
-      jQuery('.messi-actions', this.messi).append(btn);
-    
+        jQuery('.messi-actions', this.messi).append(btn);
+      }());
     };
   
   } else {
