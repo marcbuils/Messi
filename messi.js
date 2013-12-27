@@ -278,4 +278,4 @@
   });
   
   root.Messi = Messi;
-}());
+}(window));
