@@ -63,7 +63,7 @@ function Messi(data, options) {
         });
       
         jQuery('.messi-actions', this.messi).append(btn);
-      }());
+      }).apply(this);
     };
   
   } else {
